@@ -5,3 +5,7 @@ go:
   - 1.5
   - 1.6
   - tip
+
+before-script:
+  - psql -c 'CREATE USER ottaconf; CREATE DATABASE ottaconf OWNER ottaconf;' -U postgres
+  - psql -f db/schema-v1.sql -U ottaconf
